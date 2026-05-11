@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/media/kilams/DEV/DEV/DEV_FULL_STACK/DJANGO_REACT/Plateforme Universitaire/backend/env/bin/python3" "$0" "$@"
-' '''
+#!/media/kilams/DEV/DEV/DEV_FULL_STACK/DJANGO_REACT/PlateformeUniversitaire/backend/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

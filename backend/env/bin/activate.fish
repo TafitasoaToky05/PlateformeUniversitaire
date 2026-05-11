@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/media/kilams/DEV/DEV/DEV_FULL_STACK/DJANGO_REACT/Plateforme Universitaire/backend/env'
+set -gx VIRTUAL_ENV /media/kilams/DEV/DEV/DEV_FULL_STACK/DJANGO_REACT/PlateformeUniversitaire/backend/env
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH
