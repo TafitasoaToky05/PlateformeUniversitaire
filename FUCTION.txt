@@ -1,0 +1,124 @@
+Voici des exemples concrets pour effectuer les opérations **GET, POST, PUT et DELETE** en utilisant l'instance `axiosInstance` que nous venons de créer.
+
+> ⚠️ **Note technique importante :** En HTTP et avec Axios, le terme **`push`** n'existe pas. Pour envoyer ou modifier des données, on utilise **`post`** (création) ou **`put` / `patch**` (modification). Le mot *push* est plutôt utilisé en JavaScript pour ajouter un élément dans un tableau (`array.push()`).
+
+Voici comment implémenter ces 4 opérations majeures (CRUD) pour communiquer avec votre Backend Django :
+
+---
+
+### 1. POST (Création / Envoi de données)
+
+On l'utilise pour créer une nouvelle ressource (par exemple, ajouter un nouveau cours via `CreateCours.jsx`).
+
+```javascript
+import axiosInstance from './api/axios';
+
+const ajouterNouveauCours = async () => {
+  const donneesCours = {
+    titre: "Django Fullstack",
+    code: "INF-401",
+    coefficient: 3,
+    volume_horaire: 30,
+    description: "Apprentissage du framework Django et React."
+  };
+
+  try {
+    // Mandefa ny données amin'ny alalan'ny POST
+    const response = await axiosInstance.post('cours/', donneesCours);
+    
+    console.log("Fandresena (Succès) ! Data azo:", response.data);
+    // response.status dia tokony ho 201 (Created)
+  } catch (error) {
+    console.error("Nisy olana tamin'ny POST:", error.response?.data);
+  }
+};
+
+```
+
+---
+
+### 2. PUT (Modification complète d'une ressource)
+
+On l'utilise pour modifier un élément existant (par exemple, mettre à jour un cours via `EditCours.jsx`). On passe généralement l'**ID** de l'élément dans l'URL.
+
+```javascript
+import axiosInstance from './api/axios';
+
+const modifierCoursExistant = async (idDuCours) => {
+  const donneesModifiees = {
+    titre: "Django Fullstack & React Avançé", // Novaina ity
+    code: "INF-401",
+    coefficient: 4, // Novaina ity koa
+    volume_horaire: 45, // Novaina ity koa
+    description: "Mise à jour du cours avec l'intégration de JWT."
+  };
+
+  try {
+    // Miantso ny URL miaraka amin'ny ID (ex: api/cours/5/) indray amin'ny PUT
+    const response = await axiosInstance.put(`cours/${idDuCours}/`, donneesModifiees);
+    
+    console.log("Voasolo soa aman-tsara ny data:", response.data);
+    // response.status dia tokony ho 200 (OK)
+  } catch (error) {
+    console.error("Nisy olana tamin'ny PUT:", error.response?.data);
+  }
+};
+
+```
+
+*Astuce : Si vous voulez modifier seulement **un seul champ** (par exemple, juste le titre) sans renvoyer tout le reste, utilisez `axiosInstance.patch()` au lieu de `put`.*
+
+---
+
+### 3. GET (Récupération de données — *À la place de "push"*)
+
+On l'utilise pour lire ou récupérer des données depuis le serveur (par exemple, afficher la liste des étudiants ou charger les données d'un cours avant modification).
+
+```javascript
+import axiosInstance from './api/axios';
+
+const nakaNyLisitryNyCours = async () => {
+  try {
+    // Maka ny cours rehetra avy any amin'ny Backend
+    const response = await axiosInstance.get('cours/');
+    
+    console.log("Ireo lisitry ny cours azo:", response.data); // Ity dia "Array" (Tableau)
+    return response.data;
+  } catch (error) {
+    console.error("Nisy olana tamin'ny GET:", error.response?.data);
+  }
+};
+
+```
+
+---
+
+### 4. DELETE (Suppression d'une ressource)
+
+On l'utilise pour supprimer définitivement un élément de la base de données en transmettant son **ID**.
+
+```javascript
+import axiosInstance from './api/axios';
+
+const supprimerUnCours = async (idDuCours) => {
+  try {
+    // Mandefa baiko famafana any amin'ny URL misy ID (ex: api/cours/5/)
+    const response = await axiosInstance.delete(`cours/${idDuCours}/`);
+    
+    console.log("Voafafa soa aman-tsara ilay cours !");
+    // response.status dia tokony ho 204 (No Content) raha voadona tsara ny Django
+  } catch (error) {
+    console.error("Nisy olana tamin'ny DELETE:", error.response?.data);
+  }
+};
+
+```
+
+---
+
+### 💡 Famintinana fohy ho an'ny fitadidiana (Cheat Sheet) :
+
+* **`axiosInstance.get(url)`** : Maka sary na mamaky data (R - Read).
+* **`axiosInstance.post(url, data)`** : Mamorona data vaovao (C - Create).
+* **`axiosInstance.put(url, data)`** : Manova data efa misy manontolo (U - Update).
+* **`axiosInstance.delete(url)`** : Mamafa data (D - Delete).
