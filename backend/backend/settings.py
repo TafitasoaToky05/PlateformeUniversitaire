@@ -17,7 +17,6 @@ SECRET_KEY = 'django-insecure-#g1tz-f!iln#tvit7%m629$q5j3k@ul^f3jhvdzmk^b&)@z%%y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'api.Utilisateur'
 
@@ -28,7 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Le préfixe de l'URL pour accéder aux fichiers
 MEDIA_URL = '/cours_files/'
+MEDIA_ROOT = BASE_DIR / 'cours_files'
+# settings.py
 
+# Add this line:
+MEDIA_URL = '/cours_files/'
+MEDIA_ROOT = BASE_DIR / 'cours_files'
 # Le dossier physique sur votre ordinateur où Django va stocker les fichiers
 MEDIA_ROOT = os.path.join(BASE_DIR, 'cours_files')
 
@@ -96,10 +100,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist'
 ]
-
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -107,9 +110,24 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     "http://localhost:3000",
+]
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "server.local",
+    "192.168.10.10",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://server.local",
+    "http://192.168.10.10",
 ]
 
 # Optionnel : Exposer explicitement l'en-tête Content-Disposition pour les téléchargements

@@ -46,6 +46,8 @@ import SuiviMatiere from './components/etudiants/SuiviMatiere';
 import SuiviDetailsMatiere from './components/etudiants/DetailsSuiviMatiere';
 import SuiviExerciceExamen from './components/etudiants/SuiviExerciceExamen';
 import DetailsSuiviMatiere from './components/etudiants/DetailsSuiviMatiere';
+import DetailsSuiviExamenExercice from './components/etudiants/DetailsSuiviExamenExercice';
+import PosterExercice from './components/etudiants/SoumettreReponseExercice';
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -140,6 +142,8 @@ function AppContent() {
               <Route path='suivi-matiere' element={<SuiviMatiere/>} />
               <Route path='suivi-details-matiere/:id' element={<DetailsSuiviMatiere/>} />
               <Route path='suivi-examen-exercice' element={<SuiviExerciceExamen/>} />
+              <Route path='details-suivi-examen-exercice/:id' element={<DetailsSuiviExamenExercice/>} />
+              <Route path='poster-exercice/:id' element={<PosterExercice/>} />
             </Routes>
           </NavbarEtudiant>
         </ProtectedRoute>

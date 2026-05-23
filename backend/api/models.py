@@ -175,6 +175,23 @@ class FichierExercice(models.Model):
     exercice = models.ForeignKey(Exercice, on_delete=models.CASCADE, related_name='fichiers')
     fichier = models.FileField(upload_to='exercices/')
     date_televersement = models.DateTimeField(auto_now_add=True)
+    
+    
+# ... dans models.py ...
+
+class SoumissionExercice(models.Model):
+    exercice = models.ForeignKey(Exercice, on_delete=models.CASCADE, related_name='soumissions')
+    etudiant = models.ForeignKey(Etudiant, on_delete=models.CASCADE, related_name='travaux_rendus')
+    fichier_reponse = models.FileField(upload_to='soumissions_exercices/')
+    commentaire = models.TextField(blank=True, null=True)
+    date_soumission = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        # Empêche un étudiant de soumettre plusieurs fois pour le même exercice (optionnel)
+        unique_together = ('exercice', 'etudiant')
+
+    def __str__(self):
+        return f"{self.etudiant.user.last_name} - {self.exercice.titre_exercice}"
 
 
 #==========================================
@@ -304,3 +321,7 @@ class LignePresence(models.Model):
 
     def __str__(self):
         return f"{self.etudiant.user.last_name} - {self.statut}"
+    
+    
+    
+    

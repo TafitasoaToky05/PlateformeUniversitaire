@@ -12,5 +12,6 @@ admin.site.register(Examen)
 admin.site.register(Exercice)
 admin.site.register(FichierExamen)
 admin.site.register(FichierExercice)
+admin.site.register(SoumissionExercice)
 
 

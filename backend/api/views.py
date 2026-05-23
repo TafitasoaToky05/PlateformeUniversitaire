@@ -150,14 +150,25 @@ class EmploiDuTempsViewSet(viewsets.ModelViewSet):
 # ==========================================
 # MODULE 1 : EXERCICE
 # ==========================================
+# Ao amin'ny views.py
 class ExerciceViewSet(viewsets.ModelViewSet):
-    queryset = Exercice.objects.all()
+    # Manampy .select_related('matiere') mba haka ny info rehetra momba ny matiere
+    queryset = Exercice.objects.select_related('matiere').all()
     serializer_class = ExerciceSerializer
     
 class FichierExerciceViewSet(viewsets.ModelViewSet):
     queryset = FichierExercice.objects.all()
     serializer_class = FichierExerciceSerializer
     parser_classes = (MultiPartParser, FormParser)
+    
+class SoumissionExerciceViewSet(viewsets.ModelViewSet):
+    queryset = SoumissionExercice.objects.all()
+    serializer_class = SoumissionExerciceSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        # Associe automatiquement l'étudiant connecté à la soumission
+        serializer.save(etudiant=self.request.user.profil_etudiant)
 
 
 # ==========================================

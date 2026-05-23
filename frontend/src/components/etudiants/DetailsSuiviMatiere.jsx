@@ -159,28 +159,6 @@ export default function DetailsSuiviMatiere() {
                                     Gestion des chapitres et de leurs documents joints ({lesCours.length})
                                 </Typography>
                             </Box>
-
-                            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                                <Button
-                                    variant="contained"
-                                    startIcon={<Add />}
-                                    onClick={handleGoToAjouter}
-                                    color='success'
-                                    sx={{ textTransform: 'none', borderRadius: '8px', fontWeight: '600' }}
-                                >
-                                    Ajouter un syllabus
-                                </Button>
-                                <Button
-                                    variant="contained"
-                                    startIcon={<CloudUpload />}
-                                    onClick={handleGoToImporterGlobal}
-                                    color='primary'
-                                    disabled={lesCours.length === 0}
-                                    sx={{ textTransform: 'none', borderRadius: '8px', fontWeight: '600' }}
-                                >
-                                    Importer un support
-                                </Button>
-                            </Box>
                         </Box>
 
                         {/* Fampisehoana ireo Cours (Accordions) */}
@@ -281,22 +259,6 @@ export default function DetailsSuiviMatiere() {
                                             </Box>
 
                                             <Divider sx={{ my: 2, borderStyle: 'dashed' }} />
-
-                                            {/* Bokotra fampidirana rakitra eo an-toerana */}
-                                            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                                <Button
-                                                    size="small"
-                                                    variant="outlined"
-                                                    color="primary"
-                                                    startIcon={<UploadFile />}
-                                                    onClick={() => navigate(`/enseignant/importer-fichier-syllabus/${id}`, {
-                                                        state: { coursId: cours.id, coursTitre: cours.titre_cours }
-                                                    })}
-                                                    sx={{ textTransform: 'none', borderRadius: '6px', fontWeight: '600' }}
-                                                >
-                                                    Ajouter un document
-                                                </Button>
-                                            </Box>
                                         </AccordionDetails>
                                     </Accordion>
                                 ))

@@ -142,24 +142,30 @@ class FichierCoursSerializer(serializers.ModelSerializer):
 # ==========================================
 # MODULE 4 : EXERCICES
 # ==========================================
+# Ao amin'ny serializers.py
 class ExerciceSerializer(serializers.ModelSerializer):
-    # Afaka aseho ny kaody na ny anaran'ny matiere mba ho mora vakiana amin'ny Frontend
-    code_matiere = serializers.CharField(source='matiere.code_matiere', read_only=True)
-    titre_matiere = serializers.CharField(source='matiere.titre', read_only=True)
+    # Diniho tsara ny 'source' sy ny anarana
+    matiere_details = MatiereSerializer(source='matiere', read_only=True)
 
     class Meta:
         model = Exercice
-        fields = [
-            'id', 'matiere', 'code_matiere', 'titre_matiere', 
-            'titre_exercice', 'description', 'date_creation'
-        ]
+        # Aza mampiasa "__all__" fa tanisao mazava ny fields
+        fields = ['id', 'matiere', 'matiere_details', 'titre_exercice', 'description', 'date_creation']
         read_only_fields = ['date_creation']
+        
         
 class FichierExerciceSerializer(serializers.ModelSerializer):
     class Meta:
         model = FichierExercice
         fields = "__all__"
         read_only_fields = ['date_televersement']
+        
+class SoumissionExerciceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SoumissionExercice
+        fields = ['id', 'exercice', 'etudiant', 'fichier_reponse', 'commentaire', 'date_soumission']
+        read_only_fields = ['etudiant'] # L'étudiant est automatiquement pris depuis 'request.user'
+        
 # ==========================================
 # MODULE 4 : EXAMENS
 # ==========================================
@@ -236,6 +242,9 @@ class LignePresenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = LignePresence
         fields = ['id', 'etudiant_id', 'matricule', 'etudiant_nom', 'etudiant_prenom', 'statut', 'remarque']
+        
+        
+
 
 
 class FeuillePresenceSerializer(serializers.ModelSerializer):

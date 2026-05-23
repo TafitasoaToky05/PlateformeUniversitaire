@@ -3,13 +3,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
 from .views import RegisterView
 # Nampiana ny import an'ilay custom view-nao eto
-from .views import (
-    UtilisateurViewSet, EnseignantViewSet, FiliereViewSet, EtudiantViewSet,
-    MatiereViewSet, InscriptionViewSet, NoteViewSet, SalleViewSet,
-    EmploiDuTempsViewSet, CoursViewSet, FichierCoursViewSet, ExerciceViewSet,
-    ExamenViewSet, FichierExerciceViewSet, FichierExamenViewSet,
-    FeuillePresenceViewSet, MyTokenObtainPairView  
-)
+from .views import *
 
 # Création du routeur DRF
 router = DefaultRouter()
@@ -31,6 +25,7 @@ router.register(r'examens', ExamenViewSet, basename='examen')
 router.register(r'fichiers-exercices', FichierExerciceViewSet, basename='fichier-exercice')
 router.register(r'fichiers-examens', FichierExamenViewSet, basename='fichier-examen')
 router.register(r'presences', FeuillePresenceViewSet, basename='presence')
+router.register(r'soumissions-exercices', SoumissionExerciceViewSet, basename = 'soumissions-exercices')
 
 # NATAMBATRA HO IRAY NY URLPATTERNS DAHOLO
 urlpatterns = [

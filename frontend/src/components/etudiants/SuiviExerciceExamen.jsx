@@ -234,7 +234,7 @@ export default function GestionExerciceExamen() {
                                             '&:hover': { bgcolor: '#1e293b' }
                                         }}
                                         component={Link}
-                                        to={`/details-examen-devoir/${matiere.id}`}
+                                        to={`/etudiant/details-suivi-examen-exercice/${matiere.id}`}
                                     >
                                         Voir les cours
                                     </Button>
