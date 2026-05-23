@@ -92,8 +92,12 @@ export default function NavbarAdmin({ children }) {
         { category: 'Vue Générale', items: [{ text: 'Tableau de Bord', icon: <InsertChart />, lien: '/admin/dashboard-admin' }] },
         { category: '1. Gouvernance', items: [{ text: 'Gestion Utilisateurs', icon: <People />, lien: '/admin/gestion-utilisateurs' }] },
         { category: '2. Architecture Académique', items: [{ text: 'Filières', icon: <AccountBalance />, lien: '/admin/architecture-academique' }] },
-        { category: '3. Pédagogie', items: [{ text: 'Cours & EDT', icon: <School />, lien: '/admin/admin-cours' }, { text: 'Communication', icon: <NotificationsActive />, lien: '/admin/admin-communication' }] },
-        { category: '4. Audit', items: [{ text: 'Notes', icon: <Assessment />, lien: '/admin/controle-notes' }, { text: 'Sécurité', icon: <Security />, lien: '/admin/securite-backups' }] }
+        { category: '3. Pédagogie', items: [
+            { text: 'Matiere', icon: <School />, lien: '/admin/admin-cours' },
+            // { text: 'Communication', icon: <NotificationsActive />, lien: '/admin/admin-communication' }
+            
+            ] },
+        // { category: '4. Audit', items: [{ text: 'Notes', icon: <Assessment />, lien: '/admin/controle-notes' }, { text: 'Sécurité', icon: <Security />, lien: '/admin/securite-backups' }] }
     ];
 
     const currentItem = menuSections.flatMap(s => s.items).find(i => i.lien === location.pathname);

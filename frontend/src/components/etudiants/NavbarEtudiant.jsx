@@ -78,12 +78,12 @@ export default function NavbarEnseignant({ children }) { // CORRECTION: Utilisat
 
   // CORRECTION DES LIENS pour correspondre aux routes définies dans AppContent
   const menuSections = [
-    {
-      category: 'Tableau de Bord',
-      items: [
-        { text: 'Tableau de Bord', icon: <School />, lien: '/enseignant/dashboard' },
-      ]
-    },
+    // {
+    //   category: 'Tableau de Bord',
+    //   items: [
+    //     { text: 'Tableau de Bord', icon: <School />, lien: '/enseignant/dashboard' },
+    //   ]
+    // },
     {
       category: 'Espace Pédagogique',
       items: [
@@ -91,25 +91,25 @@ export default function NavbarEnseignant({ children }) { // CORRECTION: Utilisat
         { text: 'Devoirs & Examens', icon: <AssignmentTurnedIn />, lien: '/etudiant/suivi-examen-exercice/' }
       ]
     },
-    {
-      category: 'Suivi des Étudiants',
-      items: [
-        { text: 'Gestion Présence', icon: <HowToReg />, lien: '#' },
-        { text: 'Gestion des Notes', icon: <Calculate />, lien: '#' } // Assurez-vous que cette route existe
-      ]
-    },
-    {
-      category: 'Outils & Analyses',
-      items: [
-        { text: 'Communication', icon: <Campaign />, lien: '#' },
-        { text: 'Statistiques', icon: <BarChart />, lien: '#' }
-      ]
-    }
+    // {
+    //   category: 'Suivi des Étudiants',
+    //   items: [
+    //     { text: 'Gestion Présence', icon: <HowToReg />, lien: '#' },
+    //     { text: 'Gestion des Notes', icon: <Calculate />, lien: '#' } // Assurez-vous que cette route existe
+    //   ]
+    // },
+    // {
+    //   category: 'Outils & Analyses',
+    //   items: [
+    //     { text: 'Communication', icon: <Campaign />, lien: '#' },
+    //     { text: 'Statistiques', icon: <BarChart />, lien: '#' }
+    //   ]
+    // }
   ];
 
   const allItems = menuSections.flatMap(section => section.items);
   const currentItem = allItems.find(item => item.lien === location.pathname);
-  const activeMenuTitle = currentItem ? currentItem.text : 'Espace Enseignant';
+  const activeMenuTitle = currentItem ? currentItem.text : 'Espace Etudiant';
 
   const { logoutUser } = useAuth();
   return (
@@ -144,7 +144,7 @@ export default function NavbarEnseignant({ children }) { // CORRECTION: Utilisat
         open={open}
       >
         <DrawerHeader sx={{ bgcolor: '#111827', display: 'flex', justifyContent: 'space-between', px: 2 }}>
-          <Typography variant="subtitle2" color="#64748b" textTransform="uppercase">Panel Enseignant</Typography>
+          <Typography variant="subtitle2" color="#64748b" textTransform="uppercase">Panel Etudiant</Typography>
           <IconButton onClick={handleDrawerClose} sx={{ color: 'white' }}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>

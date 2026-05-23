@@ -78,12 +78,12 @@ export default function NavbarEnseignant({ children }) { // CORRECTION: Utilisat
 
   // CORRECTION DES LIENS pour correspondre aux routes définies dans AppContent
   const menuSections = [
-    {
-      category: 'Tableau de Bord',
-      items: [
-        { text: 'Tableau de Bord', icon: <School />, lien: '/enseignant/dashboard' },
-      ]
-    },
+    // {
+    //   category: 'Tableau de Bord',
+    //   items: [
+    //     { text: 'Tableau de Bord', icon: <School />, lien: '/enseignant/dashboard' },
+    //   ]
+    // },
     {
       category: 'Espace Pédagogique',
       items: [
@@ -91,20 +91,20 @@ export default function NavbarEnseignant({ children }) { // CORRECTION: Utilisat
         { text: 'Devoirs & Examens', icon: <AssignmentTurnedIn />, lien: '/enseignant/gestion-exercices-examens' }
       ]
     },
-    {
-      category: 'Suivi des Étudiants',
-      items: [
-        { text: 'Gestion Présence', icon: <HowToReg />, lien: '/enseignant/presence' },
-        { text: 'Gestion des Notes', icon: <Calculate />, lien: '/enseignant/notes' } // Assurez-vous que cette route existe
-      ]
-    },
-    {
-      category: 'Outils & Analyses',
-      items: [
-        { text: 'Communication', icon: <Campaign />, lien: '/enseignant/communication' },
-        { text: 'Statistiques', icon: <BarChart />, lien: '/enseignant/statistiques' }
-      ]
-    }
+    // {
+    //   category: 'Suivi des Étudiants',
+    //   items: [
+    //     { text: 'Gestion Présence', icon: <HowToReg />, lien: '/enseignant/presence' },
+    //     { text: 'Gestion des Notes', icon: <Calculate />, lien: '/enseignant/notes' } // Assurez-vous que cette route existe
+    //   ]
+    // },
+    // {
+    //   category: 'Outils & Analyses',
+    //   items: [
+    //     { text: 'Communication', icon: <Campaign />, lien: '/enseignant/communication' },
+    //     { text: 'Statistiques', icon: <BarChart />, lien: '/enseignant/statistiques' }
+    //   ]
+    // }
   ];
 
   const allItems = menuSections.flatMap(section => section.items);

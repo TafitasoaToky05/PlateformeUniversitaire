@@ -106,7 +106,7 @@ export default function Login() {
           </Typography>
           
           <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 3 }}>
-            Ampidiro ny email sy ny teny miafinao mba hidirana amin'ny sehatra.
+            Entrer votre email et mot de passe.
           </Typography>
 
           {/* Fampitandremana raha misy diso (Alert Error) */}
@@ -148,7 +148,7 @@ export default function Login() {
               required
               fullWidth
               name="password"
-              label="Teny miafina (Mot de passe)"
+              label="Mot de passe"
               type={showPassword ? 'text' : 'password'}
               id="password"
               autoComplete="current-password"
@@ -182,7 +182,7 @@ export default function Login() {
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 2 }}>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" sx={{ borderRadius: 1 }} disabled={loading} />}
-                label={<Typography variant="body2">Tadidio aho</Typography>}
+                label={<Typography variant="body2">Souviens-moi</Typography>}
               />
               <Link 
                 component="button"
@@ -220,7 +220,7 @@ export default function Login() {
             {/* Rohy mankany amin'ny fisoratana anarana (Register) */}
             <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Typography variant="body2" color="text.secondary">
-                Mbola tsy manana kaonty ? {' '}
+                Vous n'avez pas une compte? {' '}
                 <Link 
                   component="button"
                   type="button"

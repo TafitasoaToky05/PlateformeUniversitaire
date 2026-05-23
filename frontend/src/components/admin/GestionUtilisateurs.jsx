@@ -110,21 +110,21 @@ export default function GestionUtilisateurs() {
                 Gestion des Utilisateurs & Rôles
             </Typography>
             
-            {/* Fizarana bokotra ambony */}
-            <Stack direction="row" spacing={2} sx={{ mb: 3, mt: 2 }}>
-                <Button 
-                    variant="contained" 
-                    startIcon={<PersonAdd />} 
-                    sx={{ bgcolor: '#2563eb', fontWeight: 'bold' }}
-                    component={Link}
-                    to="/ajouter-enseignant"
-                >
-                    Nouvel Utilisateur
-                </Button>
-                <Button variant="outlined" startIcon={<CloudUpload />} color="primary" sx={{ fontWeight: 'bold' }}>
-                    Importer un lot (CSV/Excel)
-                </Button>
-            </Stack>
+                {/* Fizarana bokotra ambony
+                <Stack direction="row" spacing={2} sx={{ mb: 3, mt: 2 }}>
+                    <Button 
+                        variant="contained" 
+                        startIcon={<PersonAdd />} 
+                        sx={{ bgcolor: '#2563eb', fontWeight: 'bold' }}
+                        component={Link}
+                        to="/ajouter-enseignant"
+                    >
+                        Nouvel Utilisateur
+                    </Button>
+                    <Button variant="outlined" startIcon={<CloudUpload />} color="primary" sx={{ fontWeight: 'bold' }}>
+                        Importer un lot (CSV/Excel)
+                    </Button>
+                </Stack> */}
 
             {/* Zone de recherche sy ny Tabs napetraka mifanila na mifanindry tsara */}
             <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ xs: 'stretch', md: 'center' }} spacing={2} sx={{ mb: 2 }}>

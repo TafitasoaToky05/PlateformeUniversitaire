@@ -88,7 +88,7 @@ export default function DetailsFiliere() {
             {/* Bokotra Hiverenana */}
             <Button
                 component={Link}
-                to="/architecture-academique"
+                to="/admin/architecture-academique"
                 startIcon={<ArrowBack />}
                 sx={{ mb: 3, color: '#64748b' }}
             >
@@ -104,9 +104,9 @@ export default function DetailsFiliere() {
                             <Typography variant="h4" fontWeight="bold" color="#1e293b">
                                 {filiere.nom_filiere || filiere.nom || filiere.code}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Code de la filière: <strong>{filiere.code || "Tsy misy"}</strong>
-                            </Typography>
+                            {/* <Typography variant="body2" color="text.secondary">
+                                Code de la filière: <strong>{filiere.code_filiere || "Tsy misy"}</strong>
+                            </Typography> */}
                         </Box>
                     </Box>
                     <Chip 
@@ -119,7 +119,7 @@ export default function DetailsFiliere() {
                 <Divider sx={{ my: 2 }} />
                 
                 <Typography variant="body1" color="text.primary">
-                    Isan'ny mpianatra tafasoratra anarana: <strong>{mpianatraLisitra.length} {mpianatraLisitra.length > 1 ? 'étudiants' : 'étudiant'}</strong>
+                    Effectifs des etudiants: <strong>{mpianatraLisitra.length} {mpianatraLisitra.length > 1 ? 'étudiants' : 'étudiant'}</strong>
                 </Typography>
             </Paper>
 
